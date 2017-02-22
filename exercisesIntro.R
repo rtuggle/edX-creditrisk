@@ -20,8 +20,15 @@ wX0 <- sapply(wX, function(x) ifelse(x < 80, x, 0))
 
 ###Exercise 3
 dN <- rnorm(2000, 2, 3)
+mean(dN)
+sd(dN)
 dN7 <- dN[dN > 7]
 length(dN7)
 length(dN7) / length(dN)
 
+hist(dN7, col = 'red')
 qplot(dN7, geom = 'histogram', fill = I('red'), main = "Outliers")
+
+dNs <- sort(dN)
+Q <- dNs[2000 - 2000 * 0.05]
+Q2 <- quantile(dN, 0.95, type = 3) 
